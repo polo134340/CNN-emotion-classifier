@@ -1,0 +1,56 @@
+PART 1
+
+- Installing Dependencies and Setup
+      -> os; use to navigate through any file structures i.e. go into happy directory 
+      -> also stops tensorflow using all VRAM and causing OOM error 
+
+PART 2
+
+- Remove any dodgy images
+    -- photos from google could be corrupt, have incorrect file extensions n not open in python
+        or could be mislabeled or misextended 
+
+        ## use cv2 and imghdr --> also removed any images under 10KB and any weird microsoft edge vectors
+
+PART 3
+- not directly using tf api, for creating pipelines; using keras to build the img dataset; does preprocessing for memory
+-->as not loaded in to mempry, uses generator need to actually get it; convert to iterator and access and get consecutive batches of data
+
+
+PART 4
+
+- speeding up how quickly we access data from our disc, and use map to do it in pipeline.
+- x = images
+- y = target variable
+
+
+PART 5
+ - establish how much data to give to each train, test n validation partition
+ - assign one batch to the test size
+ -- note data is shuffled
+
+PART 6 
+
+ - Importing specific layers from tensorflow.keras.layers
+ - Conv2D: A 2D convolutional layer
+ - MaxPooling2D: A 2D max pooling layer - condense data by a half
+ - Dense: A fully connected layer
+ - Flatten: A layer that flattens the data - condense rows and width and no. of filters to from the channel value.
+ - Dropout: A layer that applies dropout regularization to prevent overfitting
+
+ -# last two layers are dense layers, and the rest are fully connected layers, with 256 neurons
+ -# then get a single ouput of 0 = x || x = 1
+
+ --> 256 neuron weights + 1 bias term
+
+
+ PART 7
+  -model.fit --> training component and tehn .predict for for predictions
+
+  -> epoch is how long we train data for, 1 epoch is one run over all training data
+  -> val -- see how well model is performing in real time
+
+  PART 8 
+
+  - NOTE: if loss goes down and validation loss increases, model may be overfitting so apply regularization
+#
